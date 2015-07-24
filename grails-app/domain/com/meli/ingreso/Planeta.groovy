@@ -5,6 +5,7 @@ class Planeta {
 	Integer distanciaSol
 	String sentido
 	Double gradosPorDia
+	Integer gradosOrigen = 0
 
     static constraints = {
 		nombre unique:true
@@ -13,7 +14,7 @@ class Planeta {
 	static transients = ['posX','posY', 'vel', 'factorSentido', 'log']
 	
 	def getVel(){
-		def grados = factorSentido * gradosPorDia * Pronostico.instance.dia
+		def grados = (factorSentido * gradosPorDia * Pronostico.instance.dia) + gradosOrigen 
 		def radianes = (grados * Math.PI)/180
 		return radianes
 	}
@@ -27,7 +28,7 @@ class Planeta {
 	}
 	
 	def getFactorSentido(){
-		if(sentido.equals(Constantes.HORARIO)){
+		if(sentido.equals(Pronostico.HORARIO)){
 			return -1
 		}else{
 			return 1
