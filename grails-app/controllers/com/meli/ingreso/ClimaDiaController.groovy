@@ -3,7 +3,6 @@ package com.meli.ingreso
 import grails.rest.RestfulController
 
 class ClimaDiaController extends RestfulController<ClimaDia>{
-	//static namespace = 'v1'
 	
 	static responseFormats = ['json']
 	

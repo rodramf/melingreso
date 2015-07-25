@@ -4,7 +4,6 @@ import grails.converters.JSON
 import grails.rest.RestfulController
 
 class PlanetaController extends RestfulController<Planeta>{
-	//static namespace = 'v1'
 	
 	static responseFormats = ['json']
 	
