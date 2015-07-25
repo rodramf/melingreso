@@ -10,6 +10,18 @@ class ClimaDiaController extends RestfulController<ClimaDia>{
 	ClimaDiaController() {
 		super(ClimaDia)
 	}
+	
+	@Override
+	protected List<ClimaDia> listAllResources(Map params) {
+		
+		def c = ClimaDia.createCriteria()
+		def results = c.list (params) {
+			if(params.clima){
+				eq("clima", params.clima)
+			}
+		}
+	}
+
 
 	@Override
 	def index(final Integer max) {

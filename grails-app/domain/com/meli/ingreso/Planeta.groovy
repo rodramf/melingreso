@@ -1,11 +1,15 @@
 package com.meli.ingreso
 
+import java.util.Date;
+
 class Planeta {
 	String nombre
 	Integer distanciaSol
 	String sentido
 	Double gradosPorDia
 	Integer gradosOrigen = 0
+	Date dateCreated
+	Date lastUpdated
 
     static constraints = {
 		nombre unique:true
