@@ -21,10 +21,6 @@ class ClimaService {
 			pronostico.init()
 
 			while (i <= conf?.cantidadDias) {
-				//				println "--------------------------"
-				//				println "Iniciando " + pronostico.dia
-
-
 				pronostico.dia = i
 
 				if(alineacionPlanetas(planetas, conf?.margenErrorKm)){
@@ -120,24 +116,12 @@ class ClimaService {
 		def a = puntoY -y3
 		//margen de error
 		if(Math.abs(a) <= margenError){
-			//			println "ALINEA"
-			//			println "PUNTO Y ${puntoY} y punto Y3 ${y3} --- ${Math.abs(puntoY - y3)}"
 			return true
 		}
 
 		return false
 	}
 
-	def puntoEnTriangulo(Double x1, Double y1,Double x2, Double y2, Double x3, Double y3, Double x, Double y){
-		def denominator = ((y2 - y3)*(x1 - x3) + (x3 - x2)*(y1 - y3))
-
-		def a = ((y2 - y3)*(x - x3) + (x3 - x2)*(y - y3)) / denominator
-		def b = ((y3 - y1)*(x - x3) + (x1 - x3)*(y - y3)) / denominator
-		def c = 1 - a - b
-
-		return 0 <= a && a <= 1 && 0 <= b && b <= 1 && 0 <= c && c <= 1
-
-	}
 
 	def perimetroPlanetas(planetas){
 		def punto1 = planetas[0]
